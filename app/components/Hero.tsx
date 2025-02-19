@@ -1,10 +1,10 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Sphere, OrbitControls, MeshDistortMaterial } from "@react-three/drei";
 import { motion } from "framer-motion";
-import * as THREE from "three";
+import type * as THREE from "three";
 import { Suspense } from "react";
 
 function AnimatedSphere() {
@@ -31,6 +31,23 @@ function AnimatedSphere() {
 }
 
 export default function Hero() {
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    const checkTouch = () => {
+      setIsTouchDevice(
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      );
+    };
+
+    checkTouch();
+    window.addEventListener("resize", checkTouch);
+
+    return () => {
+      window.removeEventListener("resize", checkTouch);
+    };
+  }, []);
+
   return (
     <section
       className="h-screen flex items-center justify-center relative overflow-hidden"
@@ -41,11 +58,15 @@ export default function Hero() {
           <div className="absolute pointer-events-none inset-0 bg-black" />
         }
       >
-        <Canvas className="!absolute inset-0 pointer-events-none">
+        <Canvas
+          className={`!absolute inset-0 ${
+            isTouchDevice ? "pointer-events-none" : ""
+          }`}
+        >
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} />
           <AnimatedSphere />
-          <OrbitControls enableZoom={false} />
+          {!isTouchDevice && <OrbitControls enableZoom={false} />}
         </Canvas>
       </Suspense>
       <div className="relative z-10 text-center">
