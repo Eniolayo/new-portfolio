@@ -1,26 +1,35 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel'
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
-    name: 'John Doe',
-    position: 'CTO, Tech Corp',
-    content: 'An exceptional developer who consistently delivers high-quality work.'
+    name: "John Doe",
+    position: "CTO, Tech Corp",
+    content:
+      "An exceptional developer who consistently delivers high-quality work.",
   },
   {
-    name: 'Jane Smith',
-    position: 'Project Manager, Innovate Inc',
-    content: 'Their technical skills and problem-solving abilities are truly impressive.'
+    name: "Jane Smith",
+    position: "Project Manager, Innovate Inc",
+    content:
+      "Their technical skills and problem-solving abilities are truly impressive.",
   },
   {
-    name: 'Alex Johnson',
-    position: 'Lead Developer, StartUp Co',
-    content: 'A pleasure to work with, always bringing creative solutions to complex problems.'
-  }
-]
+    name: "Alex Johnson",
+    position: "Lead Developer, StartUp Co",
+    content:
+      "A pleasure to work with, always bringing creative solutions to complex problems.",
+  },
+];
 
 export default function Testimonials() {
   return (
@@ -47,11 +56,17 @@ export default function Testimonials() {
                 >
                   <Card className="bg-gray-800 border-purple-500">
                     <CardHeader>
-                      <CardTitle className="text-purple-400">{testimonial.name}</CardTitle>
-                      <p className="text-sm text-gray-400">{testimonial.position}</p>
+                      <CardTitle className="text-purple-400">
+                        {testimonial.name}
+                      </CardTitle>
+                      <p className="text-sm text-gray-400">
+                        {testimonial.position}
+                      </p>
                     </CardHeader>
                     <CardContent>
-                      <p className="italic">&ldquo;{testimonial.content}&rdquo;</p>
+                      <p className="italic text-white">
+                        &ldquo;{testimonial.content}&rdquo;
+                      </p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -63,6 +78,5 @@ export default function Testimonials() {
         </Carousel>
       </div>
     </section>
-  )
+  );
 }
-

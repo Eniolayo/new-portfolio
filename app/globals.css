@@ -72,3 +72,7 @@
     @apply bg-background text-foreground;
   }
 }
+.logo-container {
+  width: 6rem;
+  text-align: center;
+}

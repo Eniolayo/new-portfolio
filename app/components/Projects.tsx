@@ -87,7 +87,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-10">
         <motion.h2
           className="text-4xl font-bold mb-10 text-center text-purple-500"
           initial={{ opacity: 0, y: 20 }}
