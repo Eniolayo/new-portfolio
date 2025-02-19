@@ -4,6 +4,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 export default function About() {
+  const handleResumeClick = () => {
+    window.open(
+      "https://drive.google.com/file/d/1V3eFCwDDgZ_Oa0t5FVKuSnZTe6ClL_Mv/view?usp=sharing",
+      "_blank"
+    );
+  };
   return (
     <section id="about" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -29,6 +35,9 @@ export default function About() {
             size="lg"
             variant={"outline"}
             className="bg-purple-600 text-white px-8 py-3 rounded-full  font-medium hover:bg-purple-700 transition-colors"
+            onClick={() => {
+              handleResumeClick();
+            }}
           >
             Download Resume
           </Button>

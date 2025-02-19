@@ -20,7 +20,7 @@ function AnimatedSphere({ scale }: { scale: number }) {
   });
 
   return (
-    <Sphere args={[1, 100, 200]} scale={scale} ref={meshRef}>
+    <Sphere args={[1, 100, 200]} scale={2.5} ref={meshRef}>
       <MeshDistortMaterial
         color="#8B5CF6"
         attach="material"
@@ -38,13 +38,13 @@ function ResponsiveCanvas({ children }: { children: React.ReactNode }) {
 
   let scale = 2.5; // Default scale for desktop
 
-  if (aspectRatio < 1) {
-    // Portrait mode (likely mobile)
-    scale = 2;
-  } else if (aspectRatio < 1.5) {
-    // Landscape mode but not wide (likely tablet)
-    scale = 2;
-  }
+  // if (aspectRatio < 1) {
+  //   // Portrait mode (likely mobile)
+  //   scale = 2;
+  // } else if (aspectRatio < 1.5) {
+  //   // Landscape mode but not wide (likely tablet)
+  //   scale = 2;
+  // }
 
   return <AnimatedSphere scale={scale} />;
 }
@@ -66,7 +66,7 @@ export default function Hero() {
         setCanvasSize({ width: "500px", height: "500px" });
       } else if (window.innerWidth <= 1024) {
         // Tablet
-        setCanvasSize({ width: "1000px", height: "1000px" });
+        setCanvasSize({ width: "700px", height: "700px" });
       } else {
         // Desktop
         setCanvasSize({ width: "100%", height: "100%" });
