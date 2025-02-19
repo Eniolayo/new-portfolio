@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -10,15 +9,15 @@ import Experience from "./components/Experience";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-
-const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
+import Cursor from "./components/Cursor";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export default function Home() {
   return (
     <main className="bg-black text-white min-h-screen">
-      <AnimatedCursor
+      <SpeedInsights />
+
+      {/* <AnimatedCursor
         innerSize={8}
         outerSize={35}
         innerScale={1}
@@ -31,7 +30,8 @@ export default function Home() {
         outerStyle={{
           border: "3px solid var(--cursor-color, #fff)",
         }}
-      />
+      /> */}
+      <Cursor />
       <Header />
       <Hero />
       <About />

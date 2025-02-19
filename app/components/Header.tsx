@@ -183,7 +183,7 @@ const Logo = () => (
             width="316"
             height="184"
           />
-          <g opacity="0.3" enable-background="new    ">
+          <g opacity="0.3" enableBackground="new    ">
             <path
               fill="#FFFFFF"
               d="M557.007,621.781h-52c-1.657,0-3-1.343-3-3s1.343-3,3-3h52c1.657,0,3,1.343,3,3
@@ -350,7 +350,7 @@ const Logo = () => (
           </g>
           <path
             opacity="0.14"
-            enable-background="new    "
+            enableBackground="new    "
             d="M375.015,499.781h151.984c4.423,0,8.008,3.585,8.008,8.008v117.984
               c0,4.423-3.585,8.008-8.008,8.008H375.015c-4.423,0-8.008-3.585-8.008-8.008V507.789
               C367.007,503.366,370.592,499.781,375.015,499.781z"
@@ -385,7 +385,7 @@ const Logo = () => (
           <circle
             opacity="0.35"
             fill="#283035"
-            enable-background="new    "
+            enableBackground="new    "
             cx="373.507"
             cy="502.781"
             r="3.125"
@@ -393,7 +393,7 @@ const Logo = () => (
           <circle
             opacity="0.35"
             fill="#283035"
-            enable-background="new    "
+            enableBackground="new    "
             cx="383.34"
             cy="502.781"
             r="3.125"
@@ -401,7 +401,7 @@ const Logo = () => (
           <circle
             opacity="0.35"
             fill="#283035"
-            enable-background="new    "
+            enableBackground="new    "
             cx="392.674"
             cy="502.781"
             r="3.125"

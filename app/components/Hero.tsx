@@ -36,8 +36,12 @@ export default function Hero() {
       className="h-screen flex items-center justify-center relative overflow-hidden"
       id="hero"
     >
-      <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
-        <Canvas className="!absolute inset-0">
+      <Suspense
+        fallback={
+          <div className="absolute pointer-events-none inset-0 bg-black" />
+        }
+      >
+        <Canvas className="!absolute inset-0 pointer-events-none">
           <ambientLight intensity={0.5} />
           <pointLight position={[10, 10, 10]} />
           <AnimatedSphere />
