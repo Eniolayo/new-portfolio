@@ -1,5 +1,6 @@
-- Portfolio Website
+# Portfolio Website
+
+## TODO:
+
 - favicon
 - seo
-- form submission
-- project cover image and links

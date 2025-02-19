@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import {
   Card,
@@ -11,32 +10,81 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useToast } from "@/hooks/use-toast";
 
 const projects = [
   {
     title: "Myhives",
     description:
       "Engineered a comprehensive fintech admin dashboard for managing digital savings, user accounts and transaction monitoring.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/myhives-dashboard.png",
     link: "#",
+    hasNDA: true,
   },
   {
     title: "Fullgap",
     description:
       "Project management platform for freelancers to handle contracts, track milestones and manage client documents.",
-    image: "/placeholder.svg?height=200&width=300",
-    link: "#",
+    image: "/fullgap-dashboard.png",
+    link: "https://app.fullgap.co/login",
+    hasNDA: false,
   },
   {
     title: "Ascend",
     description:
       "Created an intuitive School software system for managing students, grades, attendance and parent communications.",
-    image: "/placeholder.svg?height=200&width=300",
-    link: "#",
+    image: "/ascend-website.png",
+    link: "https://ascend-africa.vercel.app/",
+    hasNDA: false,
+  },
+  {
+    title: "Vinifai",
+    description:
+      "VIN checking platform providing comprehensive vehicle history to help buyers avoid scams and make informed decisions.",
+    image: "/vinifai-website.png",
+    link: "https://www.vinifai.com/",
+    hasNDA: false,
+  },
+  {
+    title: "Sampleswamp",
+    description:
+      "Premium marketplace for music producers featuring high-quality sample packs with intuitive audio previews and downloads.",
+    image: "/sampleswamp-website.png",
+    link: "https://www.sampleswamp.com/",
+    hasNDA: false,
+  },
+  {
+    title: "Decorindex",
+    description:
+      "AI-powered interior design platform that matches furniture from photos and connects users with professional designers.",
+    image: "/decorindex-website.png",
+    link: "https://www.decorindex.store/",
+    hasNDA: false,
   },
 ];
 
 export default function Projects() {
+  const { toast } = useToast();
+
+  const handleProjectClick = (project: {
+    title: string;
+    description: string;
+    image: string;
+    link: string;
+    hasNDA: boolean;
+  }) => {
+    if (project.hasNDA && project.link === "#") {
+      toast({
+        title: "NDA Protected Project",
+        description:
+          "Details of this project cannot be disclosed due to NDA restrictions.",
+        variant: "destructive",
+      });
+    } else if (project.link) {
+      window.open(project.link, "_blank");
+    }
+  };
+
   return (
     <section id="projects" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -64,7 +112,7 @@ export default function Projects() {
                   alt={project.title}
                   width={300}
                   height={200}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-cover object-top"
                 />
                 <CardHeader>
                   <CardTitle className="text-purple-400">
@@ -75,8 +123,11 @@ export default function Projects() {
                   <CardDescription>{project.description}</CardDescription>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild variant="outline">
-                    <a href={project.link}>View Project</a>
+                  <Button
+                    variant="outline"
+                    onClick={() => handleProjectClick(project)}
+                  >
+                    View Project
                   </Button>
                 </CardFooter>
               </Card>
