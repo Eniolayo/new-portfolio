@@ -2,14 +2,14 @@
 
 import type React from "react";
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, useState, useEffect } from "react";
 import { Sphere, OrbitControls, MeshDistortMaterial } from "@react-three/drei";
 import { motion } from "framer-motion";
 import type * as THREE from "three";
 import { Suspense } from "react";
 
-function AnimatedSphere({ scale }: { scale: number }) {
+function AnimatedSphere({}: { scale: number }) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -32,11 +32,8 @@ function AnimatedSphere({ scale }: { scale: number }) {
   );
 }
 
-function ResponsiveCanvas({ children }: { children: React.ReactNode }) {
-  const { size } = useThree();
-  const aspectRatio = size.width / size.height;
-
-  let scale = 2.5; // Default scale for desktop
+function ResponsiveCanvas({}: { children: React.ReactNode }) {
+  const scale = 2.5; // Default scale for desktop
 
   // if (aspectRatio < 1) {
   //   // Portrait mode (likely mobile)
